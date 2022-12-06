@@ -1,0 +1,55 @@
+﻿@model List<CategoryFormViewModel>
+<div class="container mt-5">
+	<div>
+		<div class="float-start"><h2>Kategoriler</h2></div>
+		<div class="float-end"><a asp-area="Admin" asp-controller="Category" asp-action="New" class="btn btn-success"><i class="bi bi-plus-circle"></i>  Yeni Kategori</a></div>
+	</div>
+
+	<div style="padding-top:75px">
+		<table id="categoryTable" class="table table-striped">
+			<thead>
+			<tr>
+				<th>Kategori Adı</th>
+				<th>Açıklama</th>
+				<th></th>
+			</tr>
+			</thead>
+			<tbody>
+			@foreach (var category in Model)
+			{
+				<tr>
+					<td>@category.Name</td>
+					<td>@category.Description</td>
+					<td>
+						<a asp-area="admin" asp-controller="category" asp-action="edit" asp-route-id="@category.Id" class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i> Düzenle</a>
+						<a asp-area="Admin" asp-controller="category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i> Sil</a>
+
+					</td>
+				</tr>
+			}
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+			
+
+@section Scripts{
+	<script>
+	$(document).ready(function() {
+    $('#categoryTable').DataTable( {
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.13.1/i18n/tr.json'
+        }
+    } );
+} );
+
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+	  'maxWidth':500,
+	  'maxHeight':500
+    })
+	</script>
+							}

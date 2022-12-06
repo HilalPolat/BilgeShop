@@ -1,0 +1,39 @@
+﻿@using BilgeShop.Business.Dtos
+
+
+@model ProductDetailViewModel
+
+    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+        
+             <div class="card-header">
+						@if (string.IsNullOrWhiteSpace(Model.ImagePath))
+						{
+							<img class="mx-auto d-block" style="width:200px; height:200px" src="~/images/nophoto.png"/>
+						}
+						else
+						{
+							<img class="mx-auto d-block" style="width:200px; height:200px" src="~/images/products/@Model.ImagePath"/>
+						}
+					</div>
+        
+     
+    </div>
+    <div class="col-md-8 ms-2">
+      <div class="card-body">
+        <h5 class="card-title">@Model.Name </h5>
+        <p class="card-text">Ürün açıklaması: @Model.Description</p>
+        <p style="color:cornflowerblue" class="card-text">Son @Model.UnitInStock Ürün</p>
+         <p style="color:indianred" class="card-text">Ürünün Fiyatı: @Model.UnitPrice TL</p>
+                @if (!string.IsNullOrWhiteSpace(@Model.ModifiedDate.ToString()))
+                {
+                     <p class="card-text"><small class="text-muted">Son Güncelleme @Model.LastUpdate.Value.Minutes dakika önce</small></p>
+                            }
+               
+           
+      </div>
+    </div>
+  </div>
+</div>
+
