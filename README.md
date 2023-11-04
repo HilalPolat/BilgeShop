@@ -3,12 +3,12 @@
 
 
 # BilgeShop
- .Net öğrenirken yaptığım bitirme projesi
+
 
 
 ##BilgeShop alışveriş sitesi
 
-**YZL8140** için yapılan MVC projesi
+MVC projesi
 
 ###Kullanılan teknolojiler
 - Sql Server
